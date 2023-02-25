@@ -49,6 +49,11 @@ button:hover {
     color: #2c3e50;
 }
 
+.result {
+    height: 116px;
+    margin-bottom: 20px;
+}
+
 .correct {
     display: flex;
     align-items: center;
@@ -58,6 +63,7 @@ button:hover {
     padding: 20px 0px;
     border-radius: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: green;
 }
 
@@ -70,5 +76,6 @@ button:hover {
     padding: 20px 0px;
     border-radius: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
     background-color: red;
 }

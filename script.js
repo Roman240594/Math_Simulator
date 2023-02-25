@@ -44,13 +44,13 @@ function displayResults() {
     document.getElementById("results").innerHTML = resultString;
 }
 
-//Очистити кількість прикладів
-function clearResults() {
-    totalProblems = 0;
-    correctAnswers = 0;
-    incorrectAnswers = 0;
-    displayResults();
-}
+// //Очистити кількість прикладів
+// function clearResults() {
+//     totalProblems = 0;
+//     correctAnswers = 0;
+//     incorrectAnswers = 0;
+//     displayResults();
+// }
 
 // Показуємо математичний приклад та відповіді на сторінці
 function showProblem() {
@@ -70,7 +70,7 @@ function showProblem() {
                 document.getElementById("result").className = "correct";
                 correctAnswers++;
             } else {
-                document.getElementById('result').innerText = 'Подумай ще.';
+                document.getElementById('result').innerText = 'На жаль, відповідь неправильна';
                 document.getElementById("result").className = "incorrect";
                 incorrectAnswers++;
             }
