@@ -1,3 +1,7 @@
+let totalProblems = -1; // загальна кількість прикладів
+let correctAnswers = 0; // кількість правильних відповідей
+let incorrectAnswers = 0; // кількість неправильних відповідей
+
 // Генеруємо випадкове число в діапазоні [min, max]
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -32,27 +36,48 @@ function shuffleArray(arr) {
     return arr;
 }
 
+//Показуємо скільки відповідей дав користувач
+function displayResults() {
+    let resultString = `Прикладів: ${totalProblems}<br>`;
+    resultString += `Правильних відповідей: ${correctAnswers}<br>`;
+    resultString += `Неправильних відповідей: ${incorrectAnswers}`;
+    document.getElementById("results").innerHTML = resultString;
+}
+
+//Очистити кількість прикладів
+function clearResults() {
+    totalProblems = 0;
+    correctAnswers = 0;
+    incorrectAnswers = 0;
+    displayResults();
+}
+
 // Показуємо математичний приклад та відповіді на сторінці
 function showProblem() {
+    totalProblems++;
     const problem = generateProblem();
     const correctAnswer = problem.op === '+' ? problem.x + problem.y : problem.x - problem.y;
     const answers = generateAnswers(correctAnswer);
-
     document.getElementById('problem').innerHTML = `${problem.x} ${problem.op} ${problem.y} = ?`;
     document.getElementById('answers').innerHTML = '';
     for (let i = 0; i < answers.length; i++) {
+
         const button = document.createElement('button');
         button.innerText = answers[i];
         button.addEventListener('click', () => {
             if (answers[i] === correctAnswer) {
                 document.getElementById('result').innerText = 'Правильно!';
                 document.getElementById("result").className = "correct";
+                correctAnswers++;
             } else {
                 document.getElementById('result').innerText = 'Подумай ще.';
                 document.getElementById("result").className = "incorrect";
+                incorrectAnswers++;
             }
             showProblem();
         });
+
+        displayResults()
         document.getElementById('answers').appendChild(button);
     }
 }
