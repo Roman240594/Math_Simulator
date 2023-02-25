@@ -49,11 +49,26 @@ button:hover {
     color: #2c3e50;
 }
 
-#result {
+.correct {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 2em;
-    background-color: #ffa07a;
+    font-size: 3em;
+    padding: 20px 0px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: green;
+}
+
+.incorrect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 3em;
+    padding: 20px 0px;
+    border-radius: 20px;
+    margin-top: 20px;
+    background-color: red;
 }
